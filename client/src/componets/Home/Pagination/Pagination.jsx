@@ -28,7 +28,7 @@ export default function Pagination({
               className={`${styles.btn} ${styles.prev}`}
               onClick={handleSupPrev}
             >
-              ◀️🐶
+              ◀🐶
             </li>
             <li className={`${styles.btn} ${styles.prev}`} onClick={handlePrev}>
               {"<"}
@@ -65,7 +65,7 @@ export default function Pagination({
               onClick={handleSupNext}
               disabled={currentPage === Math.ceil(allDogs / dogsPerPage)}
             >
-             🐶▶️
+             🐶▶
             </li>
           </ul>
         )}

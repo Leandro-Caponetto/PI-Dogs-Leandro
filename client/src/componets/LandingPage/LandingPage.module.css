@@ -211,62 +211,62 @@
 @keyframes move {
   0% {
     text-shadow:
-      4px -4px 0 hsla(0, 100%, 50%, 1), 
-      3px -3px 0 hsla(0, 100%, 50%, 1), 
-      2px -2px 0 hsla(0, 100%, 50%, 1), 
-      1px -1px 0 hsla(0, 100%, 50%, 1),
-      -4px 4px 0 hsla(180, 100%, 50%, 1), 
-      -3px 3px 0 hsla(180, 100%, 50%, 1), 
-      -2px 2px 0 hsla(180, 100%, 50%, 1), 
-      -1px 1px 0 hsla(180, 100%, 50%, 1)
+      4px -4px 0 #ff9900, 
+      3px -3px 0 #ff9900, 
+      2px -2px 0 #ff9900, 
+      1px -1px 0 #ff9900,
+      -4px 4px 0 #ffffff, 
+      -3px 3px 0 #ffffff, 
+      -2px 2px 0 #ffffff, 
+      -1px 1px 0 #ffffff
     ;
   }
   25% {    
     text-shadow:      
-      -4px -4px 0 hsla(180, 100%, 50%, 1), 
-      -3px -3px 0 hsla(180, 100%, 50%, 1), 
-      -2px -2px 0 hsla(180, 100%, 50%, 1), 
-      -1px -1px 0 hsla(180, 100%, 50%, 1),
-      4px 4px 0 hsla(0, 100%, 50%, 1), 
-      3px 3px 0 hsla(0, 100%, 50%, 1), 
-      2px 2px 0 hsla(0, 100%, 50%, 1), 
-      1px 1px 0 hsla(0, 100%, 50%, 1)      
+      -4px -4px 0 #ffffff, 
+      -3px -3px 0 #ffffff, 
+      -2px -2px 0 #ffffff, 
+      -1px -1px 0 #ffffff,
+      4px 4px 0 #ff9900, 
+      3px 3px 0 #ff9900, 
+      2px 2px 0 #ff9900, 
+      1px 1px 0 #ff9900      
     ;
   }
   50% {
     text-shadow:
-      -4px 4px 0 hsla(0, 100%, 50%, 1), 
-      -3px 3px 0 hsla(0, 100%, 50%, 1), 
-      -2px 2px 0 hsla(0, 100%, 50%, 1), 
-      -1px 1px 0 hsla(0, 100%, 50%, 1),
-      4px -4px 0 hsla(180, 100%, 50%, 1), 
-      3px -3px 0 hsla(180, 100%, 50%, 1), 
-      2px -2px 0 hsla(180, 100%, 50%, 1), 
-      1px -1px 0 hsla(180, 100%, 50%, 1)
+      -4px 4px 0 #ff9900, 
+      -3px 3px 0 #ff9900, 
+      -2px 2px 0 #ff9900, 
+      -1px 1px 0 #ff9900,
+      4px -4px 0 #ffffff, 
+      3px -3px 0 #ffffff, 
+      2px -2px 0 #ffffff, 
+      1px -1px 0 #ffffff
     ;
   }
   75% {
     text-shadow:
-      4px 4px 0 hsla(180, 100%, 50%, 1), 
-      3px 3px 0 hsla(180, 100%, 50%, 1), 
-      2px 2px 0 hsla(180, 100%, 50%, 1), 
-      1px 1px 0 hsla(180, 100%, 50%, 1),
-      -4px -4px 0 hsla(0, 100%, 50%, 1), 
-      -3px -3px 0 hsla(0, 100%, 50%, 1), 
-      -2px -2px 0 hsla(0, 100%, 50%, 1), 
-      -1px -1px 0 hsla(0, 100%, 50%, 1)      
+      4px 4px 0 #ffffff, 
+      3px 3px 0 #ffffff, 
+      2px 2px 0 #ffffff, 
+      1px 1px 0 #ffffff,
+      -4px -4px 0 #ff9900, 
+      -3px -3px 0 #ff9900, 
+      -2px -2px 0 #ff9900, 
+      -1px -1px 0 #ff9900      
     ;
   }
   100% {
     text-shadow:
-      4px -4px 0 hsla(0, 100%, 50%, 1), 
-      3px -3px 0 hsla(0, 100%, 50%, 1), 
-      2px -2px 0 hsla(0, 100%, 50%, 1), 
-      1px -1px 0 hsla(0, 100%, 50%, 1),
-      -4px 4px 0 hsla(180, 100%, 50%, 1), 
-      -3px 3px 0 hsla(180, 100%, 50%, 1), 
-      -2px 2px 0 hsla(180, 100%, 50%, 1), 
-      -1px 1px 0 hsla(180, 100%, 50%, 1)
+      4px -4px 0 #ff9900, 
+      3px -3px 0 #ff9900, 
+      2px -2px 0 #ff9900, 
+      1px -1px 0 #ff9900,
+      -4px 4px 0 #ffffff, 
+      -3px 3px 0 #ffffff, 
+      -2px 2px 0 #ffffff, 
+      -1px 1px 0 #ffffff
     ;
   }  
 }
@@ -276,3 +276,80 @@ h4{
   position: relative;
   top: 270px;
 }
+
+
+.loader {
+  height: 30px;
+  display: inline-block;
+}
+
+.loader > div {
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  box-shadow: 0 0 10px orange;
+  background: #FFECBA;
+  float: left;
+  margin: 5px;
+  transform: scale(2);
+}
+
+.loader > div:nth-child(1) {
+  animation: anm-BL-53-move1 1s infinite linear;
+}
+
+.loader > div:nth-child(2) {
+  animation: anm-BL-53-move2 1s infinite linear;
+  animation-delay: 0.2s;
+}
+
+.loader > div:nth-child(3) {
+  animation: anm-BL-53-move3 1s infinite linear;
+  animation-delay: 0.3s;
+}
+
+.loader > div:nth-child(4) {
+  animation: anm-BL-53-move4 1s infinite linear;
+  animation-delay: 0.4s;
+}
+
+.loader > div:nth-child(5) {
+  animation: anm-BL-53-move5 1s infinite linear;
+  animation-delay: 0.5s;
+}
+
+@keyframes anm-BL-53-move1 {
+  50% {
+    background: #FFBB00;
+    transform: scale(1);
+  }
+}
+
+@keyframes anm-BL-53-move2 {
+  50% {
+    background: #FFBB00;
+    transform: scale(1);
+  }
+}
+
+@keyframes anm-BL-53-move3 {
+  50% {
+    background: #FFBB00;
+    transform: scale(1);
+  }
+}
+
+@keyframes anm-BL-53-move4 {
+  50% {
+    background: #FFBB00;
+    transform: scale(1);
+  }
+}
+
+@keyframes anm-BL-53-move5 {
+  50% {
+    background: #FFBB00;
+    transform: scale(1);
+  }
+}
+  

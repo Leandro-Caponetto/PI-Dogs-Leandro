@@ -32,15 +32,15 @@
 }
 .searchBtn:hover,:focus {
   color: #ffffff;
-  background: #ff9900;
-  border: 1px solid #ff9900;
+  background: #0077ff;
+  border: 1px solid #0077ff;
   text-shadow: 0 0 5px #ffffff,
               0 0 10px #ffffff,
               0 0 20px #ffffff;
-  box-shadow: 0 0 5px #ff9900,
-              0 0 20px #ff9900,
-              0 0 50px #ff9900,
-              0 0 100px #ff9900;
+  box-shadow: 0 0 5px #0077ff,
+              0 0 20px #0077ff,
+              0 0 50px #0077ff,
+              0 0 100px #0077ff;
 }
 
 .searchTxt

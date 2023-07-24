@@ -25,7 +25,7 @@ export default function Detail(props) {
         <NavBar />
       </div>
 
-      <div>
+      <div className={styles.c}>
         {detail.length ? (
           <div className={styles.card}>
             <h1>{detail[0].name}</h1>

@@ -6,9 +6,9 @@ const URL = `${API_URL}?${API_KEY}&addRecipeInformation=true&number=10`;
 
 const { Temperament, Dog } = require("../db");
 
-
+//Esta función mapea todos los dog que estan en la API
 const reqAPI = async () => {
-  const url = await axios.get(URL); // ? fetch version
+  const url = await axios.get(URL); 
   
   const apiAttributes = await url.data.map((e) => {
     return {
@@ -24,25 +24,27 @@ const reqAPI = async () => {
   return apiAttributes;
 };
 
+//Esta función busca en la base de datos de sequelize los model temperament
 const reqDB = async () => {
   const dbAttributes = await Dog.findAll({
     include: {
       model: Temperament,
-      //   attributes: ["name" ...],
-      //   through:  {
-      //     attributes: [],
-      //   },
     },
   });
   return dbAttributes;
 };
 
+
+// Esta función junta todo otras funciones hace un nuevo array
 const reqALL = async () => {
   const apiAttributes = await reqAPI();
   const dbAttributes = await reqDB();
   const totalAttributes = apiAttributes.concat(dbAttributes);
   return totalAttributes;
 };
+
+
+
 
 const reqEachTemperament = async () => {
   const url = await axios.get(URL);

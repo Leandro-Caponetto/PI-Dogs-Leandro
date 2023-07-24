@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./Cards.module.css";
 
-export default function DogCard({
+export default function Card({
   id,
   name,
   weight_min,

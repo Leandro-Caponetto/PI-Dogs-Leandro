@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import DogCard from "./Cards/Cards";
+import Card from "./Cards/Cards";
 import Pagination from "./Pagination/Pagination";
 import NavBar from "./NavBar/NavBar";
 import SearchBar from "./SearchBar/SearchBar";
@@ -17,6 +17,7 @@ import {
 } from "../../redux/actions";
 
 import styles from "./Home.module.css";
+
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -134,13 +135,19 @@ export default function Home() {
     <div>
       {allDogs.length ? (
         <div className={styles.mainContainer}>
+
+         
           <div className={styles.navBar}>
           <Link className={styles.perro} to={"/"}>
           <div className={styles.logo}>
           <img className={styles.Logo} src={Logo} alt="" />
+         <p className={styles.pp}><span className={styles.pi}>PI</span></p> <p className={styles.pp}><span className={styles.dog}>Dogs</span></p>
           </div>
         </Link>
+        <div className={styles.nav}>
             <NavBar />
+
+        </div>
             <SearchBar />
           </div>
 
@@ -200,24 +207,11 @@ export default function Home() {
             </div>
           </div>
 
-          <div className={styles.cardArea}>
-            {currentDogs.map((el) => {
-              return (
-                <DogCard
-                  key={el.id}
-                  id={el.id}
-                  name={el.name}
-                  weight_min={el.weight_min}
-                  weight_max={el.weight_max}
-                  image={el.image}
-                  temperament={el.temperament}
-                  temperaments={el.temperaments}
-                />
-              );
-            })}
-          </div>
 
-          <div className="">
+
+
+
+          <div className={styles.paginate}>
             <Pagination
               dogsPerPage={dogsPerPage}
               allDogs={allDogs.length}
@@ -231,6 +225,44 @@ export default function Home() {
               minPage={minPage}
             />
           </div>
+
+
+
+          <div className={styles.cardArea}>
+            {currentDogs.map((el) => {
+              return (
+                <Card
+                  key={el.id}
+                  id={el.id}
+                  name={el.name}
+                  weight_min={el.weight_min}
+                  weight_max={el.weight_max}
+                  image={el.image}
+                  temperament={el.temperament}
+                  temperaments={el.temperaments}
+                />
+              );
+            })}
+          </div>
+
+          <div className={styles.paginate}>
+            <Pagination
+              dogsPerPage={dogsPerPage}
+              allDogs={allDogs.length}
+              pagination={pagination}
+              currentPage={currentPage}
+              handlePrev={handlePrev}
+              handleSupPrev={handleSupPrev}
+              handleNext={handleNext}
+              handleSupNext={handleSupNext}
+              maxPage={maxPage}
+              minPage={minPage}
+            />
+          </div>
+
+         
+
+         
         </div>
       ) : (
         <div className={styles.loader}>
