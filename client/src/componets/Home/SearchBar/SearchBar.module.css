@@ -2,6 +2,7 @@
 {
   position: relative;
   margin-right: 20px;
+  
 }
 
 .searchBox:hover > .searchTxt
@@ -12,7 +13,15 @@
 
 .searchBox:hover > .searchBtn
 {
-  background: rgba(153, 153, 153, 0.58);
+  background: #0077ff;
+  border: 1px solid #0077ff;
+  text-shadow: 0 0 5px #ffffff,
+              0 0 10px #ffffff,
+              0 0 20px #ffffff;
+  box-shadow: 0 0 5px #0077ff,
+              0 0 20px #0077ff,
+              0 0 50px #0077ff,
+              0 0 100px #0077ff;
 }
 
 .searchBtn
@@ -47,6 +56,7 @@
 {
   border: none;
   background: scroll;
+  border-radius: 10px;
   outline: none;
   float: left;
   padding: 0;

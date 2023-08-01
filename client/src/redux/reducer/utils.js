@@ -9,18 +9,27 @@ export const orderDogs = (payload, array) => {
       return array.sort((a, b) => {
         return b.name.localeCompare(a.name);
       });
-    case "AscendingWeight":
-      return array.sort((a, b) => {
+      case "AscendingWeight":
+        return array.sort((a, b) => {
+          
+          const weightB = b.weight.split('-').map(value => Number(value))
+          const weightA = a.weight.split('-').map(value => Number(value))
+          
         return (
-          b.weight_min + b.weight_max / 2 - (a.weight_min + a.weight_max / 2)
+         Math.floor( ( weightB[0] + weightB[1]) / 2 - (weightA[0] + weightA[1]) / 2)
         );
       });
     case "DescendingWeight":
       return array.sort((a, b) => {
-        return (
-          a.weight_min + a.weight_max / 2 - (b.weight_min + b.weight_max / 2)
-        );
-      });
+        
+        const weightA = a.weight.split('-').map(value => Number(value))
+        const weightB = b.weight.split('-').map(value => Number(value))
+     
+      return (
+       Math.floor( ( weightA[0] + weightA[1]) / 2 - (weightB[0] + weightB[1]) / 2)
+      );
+    })
+    
     default:
       return array;
   }

@@ -171,13 +171,20 @@
   font-weight: 500;
   color: #e2e0e0;
   text-shadow: 0 7px 4px #00000091;
-  background: transparent;
+  background: rgba(255,255,255,.05);
+  box-shadow: 0 15px 20px rgb(0, 0, 0);
+  backdrop-filter: blur(10px);
   box-shadow: 0 15px 7px #00000091;
   border: 2px solid rgb(243, 240, 240);
   transition: 0.5s ease;
   user-select: none;
 }
-
+.btn span {
+  color: #ff9900;
+  font-weight: 700;
+  font-style: 30px;
+  text-shadow: 0 10px 5px #000;
+}
 .btn:hover,:focus {
   color: #ffffff;
   background: #ff9900;

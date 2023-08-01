@@ -22,14 +22,17 @@ module.exports = (sequelize) => {
       },
       life_span: {
         type: DataTypes.STRING,
+        allowNull: true,
       },
+      
       height: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
       },
+      
       weight: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       createdInDB: {
         type: DataTypes.BOOLEAN,
@@ -37,6 +40,8 @@ module.exports = (sequelize) => {
         defaultValue: true,
       },
     },
+   
+  
     { timestamps: false }
   );
 };

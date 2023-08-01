@@ -16,6 +16,7 @@
     height: 900px;
     background: rgba(255,255,255,.05);
     box-shadow: 0 7px 17px #000;
+    border: 1px solid #FFBB00;
     backdrop-filter: blur(10px);
     border-radius: 8px;
     overflow: hidden;
@@ -37,7 +38,7 @@
     height: 530px;
     border-radius: 3%;
     box-shadow: 0 10px 17px #000;
-    
+    object-fit: cover; 
 }
 
 .container .card .text

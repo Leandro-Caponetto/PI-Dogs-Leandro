@@ -11,26 +11,30 @@ const reqAPI = async () => {
   const url = await axios.get(URL); 
   
   const apiAttributes = await url.data.map((e) => {
+   
+    
     return {
       id: e.id,
       name: e.name,
       image: e.image.url,
       temperament: e.temperament,
       life_span: e.life_span,
-      height: e.height,
-      weight: e.weight,
+      height: e.height.metric,
+      weight: e.weight.metric,
     };
   });
   return apiAttributes;
 };
-
 //Esta función busca en la base de datos de sequelize los model temperament
 const reqDB = async () => {
   const dbAttributes = await Dog.findAll({
     include: {
       model: Temperament,
+      
+     
     },
   });
+  
   return dbAttributes;
 };
 
@@ -53,7 +57,7 @@ const reqEachTemperament = async () => {
     .map((att) =>
       att.temperament ? att.temperament : "Temperaments not found"
     )
-    .map((temp) => temp?.split(", "));
+    .map((temp) => temp?.split(","));
 
   const eachTemperament = [...new Set(everyTemperament.flat())];
 
@@ -66,6 +70,7 @@ const reqEachTemperament = async () => {
   });
 
   const allTemperaments = await Temperament.findAll();
+  console.log(allTemperaments)
   return allTemperaments;
 };
 

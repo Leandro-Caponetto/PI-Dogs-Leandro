@@ -1,5 +1,5 @@
 const { STATUS_OK, STATUS_ERROR } = require('../statusConstants')
-const { reqEachTemperament, reqALL } = require("../controllers/ReqData");
+const { reqEachTemperament, reqALL } = require("./ReqData");
 
 
 async function getAllTemperaments(req, res) {

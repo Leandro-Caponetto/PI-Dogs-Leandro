@@ -7,6 +7,7 @@ import styles from "./CreateDog.module.css";
 
 function validateForm(input) {
   let errors = {};
+  
 
   // NAME
   if (!input.name) {
@@ -19,7 +20,7 @@ function validateForm(input) {
   if (!input.weight_min) {
     // weight min
     errors.weight_min = "Type a valid minimal weight number";
-  } else if (!/\d{1,2}/gi.test(input.weight_min)) {
+  } else if (!/\d{1,2}/gi.test(input.weight_min)) {   // Esta es la expresión regular 
     errors.weight_min = "Weight must have min values. Example: '25'";
   } else {
     errors.weight_min = "";
@@ -176,8 +177,8 @@ export default function DogCreation() {
               </div>
             </div>
             <div className={styles.Section}>
-              <h4 className={styles.label}>Heights</h4>
-              <label className={styles.label}>Min</label>
+              
+              <label className={styles.label}>Height Min</label>
               <input
                 type="number"
                 value={input.height_min}
@@ -191,7 +192,7 @@ export default function DogCreation() {
               <div>
                 <p className={styles.error}>{errors.height_min}</p>
               </div>
-              <label className={styles.label}>Max</label>
+              <label className={styles.label}>Height Max</label>
               <input
                 type="number"
                 value={input.height_max}
@@ -207,8 +208,8 @@ export default function DogCreation() {
               </div>
             </div>
             <div className={styles.Section}>
-              <h4 className={styles.label}>Weights</h4>
-              <label className={styles.label}>Min</label>
+              
+              <label className={styles.label}>Weight Min</label>
               <input
                 type="number"
                 value={input.weight_min}
@@ -222,7 +223,7 @@ export default function DogCreation() {
               <div>
                 <p className={styles.error}>{errors.weight_min}</p>
               </div>
-              <label className={styles.label}>Max</label>
+              <label className={styles.label}>Weight Max</label>
               <input
                 type="number"
                 value={input.weight_max}
@@ -245,6 +246,7 @@ export default function DogCreation() {
                 name="life_span"
                 placeholder="Range..."
                 onChange={(e) => handleChange(e)}
+              
               />
             </div>
             <div className={styles.Section}>

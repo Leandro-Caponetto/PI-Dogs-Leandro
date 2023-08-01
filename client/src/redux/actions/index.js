@@ -1,3 +1,4 @@
+/* eslint-disable no-unreachable */
 import axios from "axios";
 
 /*~~~~~~~~~~~~~~GETS~~~~~~~~~~~~~~*/
@@ -34,14 +35,19 @@ export const getDetail = (id) => {
     };
   } catch (err) {
     alert("ID NOT FOUND");
-    console.log(err);
+   throw new Error(err)
   }
 };
 
 /*~~~~~~~~~~~~~~POST~~~~~~~~~~~~~~*/
 export function postDog(payload) {
   return async function () {
-    const response = await axios.post("http://localhost:3001/puppy", payload);
+    const response = await axios.post("http://localhost:3001/puppy", {
+      ...payload,
+      height: `${payload.height_min} - ${payload.height_max}`,
+      weight: `${payload.weight_min} - ${payload.weight_max}`
+
+  });
     return { type: "POST_DOG", response };
   };
 }
@@ -52,6 +58,23 @@ export const orderDogs = (payload) => {
     type: "ORDER_DOGS",
     payload,
   };
+};
+
+ 
+export const orderByPesoMin = (payload) => {
+  console.log(payload)
+  return {
+     type: "ORDER_BY_PESO_MIN",
+     payload
+  }
+};
+
+export const orderByPesoMax = (payload) => {
+  console.log(payload)
+  return {
+     type: "ORDER_BY_PESO_MAX",
+     payload
+  }
 };
 
 /*~~~~~~~~~~~~~~FILTERS~~~~~~~~~~~~~~*/
@@ -65,6 +88,7 @@ export function filterDogsByTemperament(payload) {
         type: "FILTER_DOGS_TEMPS",
         payload: json.data,
       });
+      
     } catch (error) {
       console.log(error, "Error on the filters in actions file");
     }
@@ -85,6 +109,7 @@ export function getDogsByName(name) {
       const { data } = await axios.get(
         `http://localhost:3001/dogs?name=${name}`
       );
+     
       return dispatch({
         type: "SEARCH_DOG",
         payload: data,

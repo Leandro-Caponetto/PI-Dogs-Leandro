@@ -7,6 +7,7 @@ import Pagination from "./Pagination/Pagination";
 import NavBar from "./NavBar/NavBar";
 import SearchBar from "./SearchBar/SearchBar";
 import Logo from "../img/perro.png";
+
 import {
   getDogs,
   getTemperamentsList,
@@ -14,6 +15,7 @@ import {
   filterCreated,
   filterDogsByTemperament,
   pageIndex,
+ 
 } from "../../redux/actions";
 
 import styles from "./Home.module.css";
@@ -41,11 +43,13 @@ export default function Home() {
   const [, setRefreshState] = useState(true);
 
   const temperaments = useSelector((state) => state.temperaments).sort(
-    function (a, b) {
-      if (a < b) return -1;
+    function (a, b) {                                 //esta funcion realiza un ordenamiento con el metodo sort()
+      if (a < b) return -1;                           //Esto tiene el efecto de ordenar los elementos en orden alfabético ascendente.
       else return 1;
     }
   );
+
+
 
   useEffect(() => {
     dispatch(getDogs());
@@ -130,6 +134,11 @@ export default function Home() {
     setCurrentPage(1);
     setRefreshState((prevState) => !prevState);
   }
+  
+
+  
+
+  
 
   return (
     <div>
@@ -150,6 +159,7 @@ export default function Home() {
         </div>
             <SearchBar />
           </div>
+          
 
           <div className={styles.foContainer}>
             <div className={styles.filters_orders}>
@@ -160,9 +170,10 @@ export default function Home() {
                   </option>
                   <option value="AscendingName">A - Z</option>
                   <option value="DescendingName">Z - A</option>
-                  <option value="AscendingWeight">Chubby Dogs</option>
-                  <option value="DescendingWeight">Skinny Dogs</option>
+                  <option value="AscendingWeight">Ascending Weight</option>
+                  <option value="DescendingWeight">Descending Weight</option>
                 </select>
+                
               </div>
 
               <div className={styles.select}>
@@ -235,18 +246,20 @@ export default function Home() {
                   key={el.id}
                   id={el.id}
                   name={el.name}
-                  weight_min={el.weight_min}
-                  weight_max={el.weight_max}
+                  weight_min={el?.weight}
+                 
+                  
+                  
                   image={el.image}
-                  temperament={el.temperament}
-                  temperaments={el.temperaments}
+                  temperament={el?.temperament}
+                  temperaments={el?.temperaments}
                 />
               );
             })}
           </div>
 
           <div className={styles.paginate}>
-            <Pagination
+            <Pagination                                        
               dogsPerPage={dogsPerPage}
               allDogs={allDogs.length}
               pagination={pagination}

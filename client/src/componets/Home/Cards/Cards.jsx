@@ -6,7 +6,9 @@ export default function Card({
   id,
   name,
   weight_min,
-  weight_max,
+  
+  weight,
+  weight_m,
   image,
   temperament,
   temperaments,
@@ -27,8 +29,10 @@ export default function Card({
               <div className={styles.content}>
                 <h1>{name}</h1>
                 <h3>
-                  {weight_min} - {weight_max} kg
+                    {weight_min} kg
                 </h3>
+                
+               
                 <p>{temperament}</p>
               </div>
             </div>
@@ -51,8 +55,9 @@ export default function Card({
             <div className={styles.contentBx}>
               <div className={styles.content}>
                 <h1>{name}</h1>
+                
                 <h3>
-                  {weight_min} - {weight_max} kg
+                    {weight_min} kg
                 </h3>
                 {temperaments ? (
                   <p>{temperaments.map((temp) => `${temp.name}`).join(", ")}</p>

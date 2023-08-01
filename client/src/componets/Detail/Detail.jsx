@@ -34,20 +34,28 @@ export default function Detail(props) {
             <div className={styles.text}>
               <h2>
                 <span className={styles.weight}>
-                  {detail[0].weight_min} - {detail[0].weight_max} KG
-                </span>{" "}
+                  {detail[0].weight} 
+                  {detail[0].weight_min ? ` ${detail[0].weight_min} - ${detail[0].weight_max} ` : null}
+                  {` `} Kg
+                </span>
                 <span className={styles.height}>
-                  {detail[0].height_min} - {detail[0].height_max} MTS
+                  {detail[0].height} 
+                  {detail[0].height_min ? ` ${detail[0].height_min} - ${detail[0].height_max} ` : null}
+                   {` `} cm
                 </span>
               </h2>
 
-              <h2>{detail[0].life_span}</h2>
+              <h2>
+                
+                {detail[0].life_span}
+              </h2>
             </div>
+            
 
             <div className={styles.temperaments}>
-              <p>
-                {detail[0].createdInDB
-                  ? detail[0].temperaments.map((el) => el.name).join(", ")
+              <p className={styles.content}>
+                {detail[0].createdInDB || detail[0].temperaments
+                  ? detail[0].temperaments.map((temp) => temp.name).join(", ")
                   : detail[0].temperament}
               </p>
             </div>

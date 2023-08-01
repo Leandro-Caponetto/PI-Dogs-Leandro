@@ -8,7 +8,7 @@ export default function Button() {
       <div>
         <Link className={styles.btn} to={"/home"}>
         
-          lets go !
+          lets go <span>!</span> 
         </Link>
       </div>
     </Fragment>

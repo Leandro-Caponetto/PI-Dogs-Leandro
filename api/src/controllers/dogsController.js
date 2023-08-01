@@ -5,26 +5,22 @@ const Dog = require('../models/Dog');
 
 const getDogs = async (req, res) => {
   const { name } = req.query;
-
+  const dogsAllData = await reqALL();
   try {
     if (name) {
-      const dogFilterData = await Dog.findAll({
-        where: {
-          name: {
-            [sequelize.Op.iLike]: `%${name}%`,
-          },
-        },
-      });
-
+     
+      const dogFilterData = await dogsAllData.filter((e) =>
+        e.name.toLowerCase().includes(name.toLowerCase())
+      );
       dogFilterData.length
-        ? res.status(STATUS_OK).send(dogFilterData)
-        : res.status(STATUS_ERR).send("Puppy not found :c");
+        ? res.status(200).send(dogFilterData)
+        : res.status(400).send("Puppy not found :c");
     } else {
-      const dogsAllData = await reqALL();
-      res.status(STATUS_OK).json(dogsAllData);
+      
+      res.status(200).json(dogsAllData);
     }
   } catch (error) {
-    res.status(STATUS_ERROR).json(error);
+    res.status(500).json(error);
   }
 };
 

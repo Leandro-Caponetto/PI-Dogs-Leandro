@@ -3,6 +3,7 @@ import { orderDogs, filterDogs } from "./utils";
 const initialState = {
   dogs: [],
   allDogs: [],
+  
   temperaments: [],
   detail: [],
 };
@@ -29,9 +30,13 @@ function rootReducer(state = initialState, action) {
       };
     /*~~~~~~~~~~~~~~POST~~~~~~~~~~~~~~*/
     case "POST_DOG":
+   
+      const newDog = action.response.data; 
       return {
         ...state,
+        dogs: [...state.dogs, newDog], 
       };
+  
 
     /*~~~~~~~~~~~~~~ORDERS~~~~~~~~~~~~~~*/
     case "ORDER_DOGS":
@@ -39,6 +44,9 @@ function rootReducer(state = initialState, action) {
         ...state,
         allDogs: orderDogs(action.payload, state.allDogs),
       };
+
+
+      
 
     /*~~~~~~~~~~~~~~FILTERS~~~~~~~~~~~~~~*/
     case "FILTER_DOGS_TEMPS":

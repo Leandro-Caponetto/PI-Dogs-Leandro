@@ -14,11 +14,15 @@
   width: 320px;
   height: 320px;
   margin: 5px 15px;
- 
- 
+ border: 5px solid  rgba(255,255,255,.05);
+ box-shadow: 0 5px 10px rgba(0, 0, 0, 0.825);
+ backdrop-filter: blur(10px);
+transition: border-radius cubic-bezier(0.075, 0.82, 0.165, 1) 1s, transform cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
+overflow: hidden;
+  border-radius: 8px;
   overflow: hidden;
   cursor: pointer;
-  box-shadow: 0 20px 27px #000000;
+  box-shadow: 0 30px 37px #000000;
 }
 
 
@@ -37,7 +41,7 @@
 
 .container .card:hover
 {
-  transition: 0.3s;
+  transition: 0.5s;
   transform: scale(1.05);
 }
 
@@ -59,9 +63,14 @@
   left: 0;
   width: 100%;
   height: 100%;
-  border: 7px inset #ff9900;
+  border-radius: 8px;
   
   object-fit: cover; 
+}
+.container .card .imgBx img:hover{
+  transition:  0.5s;
+  border-radius: 20px;
+ 
 }
 h1{
   color: #ff9900;
@@ -136,6 +145,7 @@ h3, p{
 .container .card:hover,:focus {
   color: #ffffff;
   background: #ff9900;
+  
   border: 2px solid #ff9900;
   text-shadow: 0 0 5px #ffffff,
               0 0 10px #ffffff,
